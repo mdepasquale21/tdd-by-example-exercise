@@ -1,0 +1,24 @@
+{
+  "name": "tdd-by-example",
+  "version": "1.0.0",
+  "description": "An app to exercise with the book TDD by example by Kent Beck",
+  "main": "app.ts",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "unit-test": "nodemon --ext ts --exec npm run _unit-test",
+    "_unit-test": "npm run clean && npm run gcp-build && jasmine || exit 0",
+    "clean": "gulp",
+    "gcp-build": "tsc -p ."
+  },
+  "author": "mdepasquale21",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jasmine": "^3.5.10",
+    "del": "^5.1.0",
+    "gulp": "^4.0.2",
+    "jasmine": "^3.5.0",
+    "nodemon": "^2.0.4"
+  }
+}

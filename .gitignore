@@ -1,0 +1,12 @@
+node_modules/
+*.js
+*.js.*
+.idea/
+
+spec/**/*.js
+spec/**/*.js.*
+src/**/*.js
+src/**/*.js.*
+
+!spec/support/specs.js
+!gulpfile.js

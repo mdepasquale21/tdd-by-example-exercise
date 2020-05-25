@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "noImplicitReturns": true,
+    "sourceMap": true,
+    "resolveJsonModule": true,
+    "lib": [
+      "es2017"
+    ],
+    "target": "es2017"
+  },
+  "compileOnSave": true,
+  "include": [
+    "*.ts",
+    "src/**/*.ts",
+    "spec/**/*.ts"
+  ],
+  "typeAcquisition": {
+    "include": [
+      "src/types/**/*.d.ts"
+    ]
+  },
+  "exclude": [
+    "node_modules"
+  ]
+}
