@@ -8,14 +8,14 @@ describe('Multiplication', () => {
     });
 
     it('5 dollars times 2 is 10 dollars', () => {
-        const product: Dollar = five.times(2)
-        expect(product).toEqual(new Dollar(10))
+        const product: Dollar = five.times(2);
+        expect(product).toEqual(new Dollar(10));
 
     });
 
     it('5 dollars times 3 is 15 dollars', () => {
-        const product: Dollar = five.times(3)
-        expect(product).toEqual(new Dollar(15))
+        const product: Dollar = five.times(3);
+        expect(product).toEqual(new Dollar(15));
     });
 
 });
