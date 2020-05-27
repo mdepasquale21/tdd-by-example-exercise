@@ -1,5 +1,11 @@
+import { Dollar } from '../src/dollar';
+
 describe('', () => {
-    it('should do stuff', () => {
-        expect(true).toEqual(false)
+
+    it('five dollars multiplied by two is ten dollars', () => {
+        const five = new Dollar(5);
+        five.times(2)
+        expect(five.amount).toEqual(10)
     });
+
 });
