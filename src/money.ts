@@ -5,15 +5,19 @@ export class Money {
     }
 
     static dollar(amount: number) {
-        return new Money(amount, 'USD')
+        return new Money(amount, 'USD');
     }
 
     static franc(amount: number) {
-        return new Money(amount, 'CHF')
+        return new Money(amount, 'CHF');
     }
 
     times(multiplier: number): Money {
-        return new Money(this.amount * multiplier, this.moneyCurrency)
+        return new Money(this.amount * multiplier, this.moneyCurrency);
+    }
+
+    plus(addend: Money) {
+        return new Money(this.amount + addend.amount, this.moneyCurrency);
     }
 
     currency(): string {
@@ -25,7 +29,7 @@ export class Money {
     }
 
     toString(): string {
-        return this.amount + ' ' + this.moneyCurrency
+        return this.amount + ' ' + this.moneyCurrency;
     }
 
 }
