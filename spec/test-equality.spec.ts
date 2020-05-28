@@ -32,3 +32,13 @@ describe('Franc Equality', () => {
     });
 
 });
+
+describe('Dollar and Franc Equality', () => {
+
+    it('5 dollars not equal to 5 francs', () => {
+        const fiveDollars = new Dollar(5);
+        const fiveFrancs = new Franc(5);
+        expect(fiveDollars.equals(fiveFrancs)).toEqual(false);
+    });
+
+});

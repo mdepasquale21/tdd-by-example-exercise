@@ -3,7 +3,11 @@ export class Money {
     }
 
     public equals(money: Money): boolean {
-        return this.amount === money.amount;
+        return this.amount === money.amount && this.getClass() === money.getClass();
+    }
+
+    public getClass(): string {
+        return 'Money';
     }
 
 }

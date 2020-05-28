@@ -9,4 +9,8 @@ export class Franc extends Money {
         return new Franc(this.amount * multiplier);
     }
 
+    public getClass(): string {
+        return 'Franc';
+    }
+
 }

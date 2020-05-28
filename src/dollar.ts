@@ -9,4 +9,8 @@ export class Dollar extends Money {
         return new Dollar(this.amount * multiplier);
     }
 
+    public getClass(): string {
+        return 'Dollar';
+    }
+
 }
