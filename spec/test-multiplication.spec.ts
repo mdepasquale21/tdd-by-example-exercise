@@ -1,42 +1,37 @@
-import { Dollar } from '../src/dollar';
-import { Franc } from '../src/franc';
+import { Money } from '../src/money';
 
 describe('Dollar Multiplication', () => {
-    let five: Dollar;
+    let five: Money;
 
     beforeEach(() => {
-        five = new Dollar(5);
+        five = Money.dollar(5);
     });
 
     it('5 dollars times 2 is 10 dollars', () => {
-        const product: Dollar = five.times(2);
-        expect(product).toEqual(new Dollar(10));
+        expect(five.times(2)).toEqual(Money.dollar(10));
 
     });
 
     it('5 dollars times 3 is 15 dollars', () => {
-        const product: Dollar = five.times(3);
-        expect(product).toEqual(new Dollar(15));
+        expect(five.times(3)).toEqual(Money.dollar(15));
     });
 
 });
 
 describe('Franc Multiplication', () => {
-    let five: Franc;
+    let five: Money;
 
     beforeEach(() => {
-        five = new Franc(5);
+        five = Money.franc(5);
     });
 
     it('5 francs times 2 is 10 francs', () => {
-        const product: Franc = five.times(2);
-        expect(product).toEqual(new Franc(10));
+        expect(five.times(2)).toEqual(Money.franc(10));
 
     });
 
     it('5 francs times 3 is 15 francs', () => {
-        const product: Franc = five.times(3);
-        expect(product).toEqual(new Franc(15));
+        expect(five.times(3)).toEqual(Money.franc(15));
     });
 
 });
