@@ -1,6 +1,6 @@
 import { Money } from '../src/money';
 
-describe('Dollar Equality', () => {
+describe('Equality with same currency', () => {
 
     it('5 dollars equal to 5 dollars', () => {
         const fiveDollars1 = Money.dollar(5);
@@ -16,23 +16,7 @@ describe('Dollar Equality', () => {
 
 });
 
-describe('Franc Equality', () => {
-
-    it('5 francs equal to 5 francs', () => {
-        const fiveFrancs1 = Money.franc(5);
-        const fiveFrancs2 = Money.franc(5);
-        expect(fiveFrancs1.equals(fiveFrancs2)).toEqual(true);
-    });
-
-    it('5 francs not equal to 6 francs', () => {
-        const fiveFrancs = Money.franc(5);
-        const sixFrancs = Money.franc(6);
-        expect(fiveFrancs.equals(sixFrancs)).toEqual(false);
-    });
-
-});
-
-describe('Dollar and Franc Equality', () => {
+describe('Equality with different currencies', () => {
 
     it('5 dollars not equal to 5 francs', () => {
         const fiveDollars = Money.dollar(5);

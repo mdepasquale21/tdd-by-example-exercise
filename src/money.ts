@@ -1,30 +1,31 @@
-import { Dollar } from './dollar';
-import { Franc } from './franc';
-
-export abstract class Money {
+export class Money {
 
     protected constructor(protected amount: number,
                           protected moneyCurrency: string) {
     }
 
     static dollar(amount: number) {
-        return new Dollar(amount, 'USD')
+        return new Money(amount, 'USD')
     }
 
     static franc(amount: number) {
-        return new Franc(amount, 'CHF')
+        return new Money(amount, 'CHF')
     }
 
-    abstract times(multiplier: number)
+    times(multiplier: number): Money {
+        return new Money(this.amount * multiplier, this.moneyCurrency)
+    }
 
-    abstract getClass(): string
-
-    public currency(): string {
+    currency(): string {
         return this.moneyCurrency;
     }
 
-    public equals(money: Money): boolean {
-        return this.amount === money.amount && this.getClass() === money.getClass();
+    equals(money: Money): boolean {
+        return this.amount === money.amount && this.currency() === money.currency();
+    }
+
+    toString(): string {
+        return this.amount + ' ' + this.moneyCurrency
     }
 
 }
