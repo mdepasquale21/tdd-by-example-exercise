@@ -1,16 +1,21 @@
 import { Money } from './money';
 
 export class Dollar extends Money {
-    constructor(amount: number) {
-        super(amount)
+
+    constructor(amount: number, currency: string) {
+        super(amount, currency)
     }
 
     public times(multiplier: number): Money {
-        return new Dollar(this.amount * multiplier);
+        return Money.dollar(this.amount * multiplier);
     }
 
     public getClass(): string {
         return 'Dollar';
+    }
+
+    public currency(): string {
+        return this.moneyCurrency;
     }
 
 }
