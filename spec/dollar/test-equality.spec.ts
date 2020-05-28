@@ -1,6 +1,6 @@
-import { Dollar } from '../src/dollar';
+import { Dollar } from '../../src/dollar';
 
-describe('Equality', () => {
+describe('Dollar Equality', () => {
 
     it('5 dollars equal to 5 dollars', () => {
         const fiveDollars1 = new Dollar(5);

@@ -1,6 +1,6 @@
-import { Dollar } from '../src/dollar';
+import { Dollar } from '../../src/dollar';
 
-describe('Multiplication', () => {
+describe('Dollar Multiplication', () => {
     let five: Dollar;
 
     beforeEach(() => {
