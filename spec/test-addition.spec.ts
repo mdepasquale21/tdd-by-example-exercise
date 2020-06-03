@@ -1,7 +1,7 @@
-import { Money } from '../src/money';
-import { Expression } from '../src/expression';
+import { Money } from '../src/money/money';
+import { Expression } from '../src/money/expression';
 import { Bank } from '../src/bank';
-import { Sum } from '../src/sum';
+import { Sum } from '../src/money/sum';
 
 describe('Addition', () => {
 

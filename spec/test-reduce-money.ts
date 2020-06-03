@@ -1,5 +1,5 @@
 import { Bank } from '../src/bank';
-import { Money } from '../src/money';
+import { Money } from '../src/money/money';
 
 describe('Reduce Money', () => {
 
