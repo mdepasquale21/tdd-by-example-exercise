@@ -7,11 +7,11 @@ export class Bank {
     }
 
     reduce(sourceExpression: Expression, toCurrency: string): Money {
-        return sourceExpression.reduce(toCurrency);
+        return sourceExpression.reduce(this, toCurrency);
     }
 
-    addRate(currency1: string, currency2: string, conversionRate: number) {
-
+    rate(fromCurrency: string, toCurrency: string): number {
+        return (fromCurrency === 'CHF' && toCurrency === 'USD') ? 2 : 1;
     }
 
 }
