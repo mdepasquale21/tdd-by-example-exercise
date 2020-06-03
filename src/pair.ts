@@ -1,27 +1,21 @@
-export interface IPair {
-    from: string;
-    to: string;
-}
-
 export class Pair {
+    private readonly pairingStringKey: string;
 
     constructor(private from: string,
                 private to: string) {
+        this.pairingStringKey = this.from + 'to' + this.to;
     }
 
     equals(otherPair: Pair): boolean {
         return this.from === otherPair.from && this.to === otherPair.to;
     }
 
-    hashCode(): number {
-        return 0;
+    getPairingStringKey(): string {
+        return this.pairingStringKey;
     }
 
-    getPlain(): IPair {
-        return {
-            from: this.from,
-            to: this.to
-        }
+    isSamePairingStringKey(otherPair: Pair): boolean {
+        return this.getPairingStringKey() === otherPair.getPairingStringKey();
     }
 
 }

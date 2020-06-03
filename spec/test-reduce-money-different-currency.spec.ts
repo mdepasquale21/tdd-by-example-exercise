@@ -9,8 +9,6 @@ describe('Reduce different Currencies', () => {
 
         bank.addRate('CHF', 'USD', 2);
 
-        console.log(francs2)
-        console.log(bank)
         const result: Money = bank.reduce(francs2, 'USD');
 
         expect(result).toEqual(Money.dollar(1));
@@ -21,8 +19,7 @@ describe('Reduce different Currencies', () => {
         const francs4: Money = Money.franc(4);
 
         bank.addRate('CHF', 'USD', 2);
-        console.log(francs4)
-        console.log(bank)
+
         const result: Money = bank.reduce(francs4, 'USD');
 
         expect(result).toEqual(Money.dollar(2));
