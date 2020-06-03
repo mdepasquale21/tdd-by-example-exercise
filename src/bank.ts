@@ -6,8 +6,8 @@ export class Bank {
     constructor() {
     }
 
-    reduce(sourceExpression: Expression, returnedCurrency: string) {
-        return Money.dollar(10);
+    reduce(sourceExpression: Expression, toCurrency: string): Money {
+        return sourceExpression.reduce(toCurrency);
     }
 
 }

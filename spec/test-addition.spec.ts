@@ -25,4 +25,13 @@ describe('Addition', () => {
         expect(reduced).toEqual(Money.dollar(10));
     });
 
+    it('if all addends have same currency and the target has same currency' +
+        ' should return a money with amount the sum of the single amounts:' +
+        ' 3 dollars + 4 dollars = 7 dollars', () => {
+        const sum: Expression = new Sum(Money.dollar(3), Money.dollar(4));
+        const bank: Bank = new Bank();
+        const result: Money = bank.reduce(sum, 'USD')
+        expect(result).toEqual(Money.dollar(7))
+    });
+
 });

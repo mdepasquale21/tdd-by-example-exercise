@@ -3,8 +3,9 @@ import { Sum } from './sum';
 
 export class Money implements Expression {
 
-    protected constructor(protected amount: number,
-                          protected moneyCurrency: string) {
+    // todo protected!!
+    constructor(public amount: number,
+                public moneyCurrency: string) {
     }
 
     static dollar(amount: number) {
@@ -33,6 +34,10 @@ export class Money implements Expression {
 
     toString(): string {
         return this.amount + ' ' + this.moneyCurrency;
+    }
+
+    reduce(toCurrency: string): Money {
+        return this;
     }
 
 }
