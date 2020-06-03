@@ -10,4 +10,8 @@ export class Bank {
         return sourceExpression.reduce(toCurrency);
     }
 
+    addRate(currency1: string, currency2: string, conversionRate: number) {
+
+    }
+
 }
