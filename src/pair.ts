@@ -1,3 +1,8 @@
+export interface IPair {
+    from: string;
+    to: string;
+}
+
 export class Pair {
 
     constructor(private from: string,
@@ -10,6 +15,13 @@ export class Pair {
 
     hashCode(): number {
         return 0;
+    }
+
+    getPlain(): IPair {
+        return {
+            from: this.from,
+            to: this.to
+        }
     }
 
 }

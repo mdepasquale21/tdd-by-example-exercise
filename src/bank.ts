@@ -1,7 +1,9 @@
 import { Expression } from './money/expression';
 import { Money } from './money/money';
+import { Pair } from './pair';
 
 export class Bank {
+    private rates: Map<Pair, number> = new Map<Pair, number>();
 
     constructor() {
     }
@@ -11,7 +13,20 @@ export class Bank {
     }
 
     rate(fromCurrency: string, toCurrency: string): number {
-        return (fromCurrency === 'CHF' && toCurrency === 'USD') ? 2 : 1;
+        if (fromCurrency === toCurrency) {
+            return 1;
+        } else {
+            const pair: Pair = new Pair(fromCurrency, toCurrency);
+            console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
+            console.log(this.rates.get(pair))
+            console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
+            return this.rates.get(pair);
+        }
+    }
+
+    addRate(fromCurrency: string, toCurrency: string, conversionRate: number) {
+        const pair: Pair = new Pair(fromCurrency, toCurrency);
+        this.rates.set(pair, conversionRate);
     }
 
 }
