@@ -9,19 +9,19 @@ export class Money implements Expression {
                 public moneyCurrency: string) {
     }
 
-    static dollar(amount: number) {
+    static dollar(amount: number): Expression {
         return new Money(amount, 'USD');
     }
 
-    static franc(amount: number) {
+    static franc(amount: number): Expression {
         return new Money(amount, 'CHF');
     }
 
-    times(multiplier: number): Money {
+    times(multiplier: number): Expression {
         return new Money(this.amount * multiplier, this.moneyCurrency);
     }
 
-    plus(addend: Money): Expression {
+    plus(addend: Expression): Expression {
         return new Sum(this, addend);
     }
 
@@ -41,5 +41,8 @@ export class Money implements Expression {
         const rate: number = bank.rate(this.currency(), toCurrency);
         return new Money(this.amount / rate, toCurrency);
     }
+
+    addend;
+    augend;
 
 }
