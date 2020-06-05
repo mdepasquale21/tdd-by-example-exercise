@@ -9,11 +9,11 @@ export class Money implements Expression {
                 public moneyCurrency: string) {
     }
 
-    static dollar(amount: number): Expression {
+    static dollar(amount: number): Money {
         return new Money(amount, 'USD');
     }
 
-    static franc(amount: number): Expression {
+    static franc(amount: number): Money {
         return new Money(amount, 'CHF');
     }
 

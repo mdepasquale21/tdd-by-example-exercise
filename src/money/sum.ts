@@ -8,14 +8,6 @@ export class Sum implements Expression {
                 public addend: Expression) {
     }
 
-    currency(): string {
-        throw new Error('Method not implemented.');
-    }
-
-    equals(other: Expression): boolean {
-        throw new Error('Method not implemented.');
-    }
-
     reduce(bank: Bank, toCurrency: string): Money {
         const amount: number = this.augend.reduce(bank, toCurrency).amount
             + this.addend.reduce(bank, toCurrency).amount;

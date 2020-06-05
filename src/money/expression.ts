@@ -11,7 +11,4 @@ export interface Expression {
 
     plus(addend: Expression): Expression;
 
-    equals(other: Expression): boolean;
-
-    currency(): string;
 }
