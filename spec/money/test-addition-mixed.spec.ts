@@ -1,6 +1,6 @@
-import { Money } from '../src/money/money';
-import { Bank } from '../src/bank';
-import { Expression } from '../src/money/expression';
+import { Money } from '../../src/money/money';
+import { Bank } from '../../src/money/bank';
+import { Expression } from '../../src/money/expression';
 
 describe('Addition of mixed currencies', () => {
 

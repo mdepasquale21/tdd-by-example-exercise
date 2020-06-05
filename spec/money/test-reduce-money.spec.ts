@@ -1,6 +1,6 @@
-import { Bank } from '../src/bank';
-import { Money } from '../src/money/money';
-import { Expression } from '../src/money/expression';
+import { Bank } from '../../src/money/bank';
+import { Money } from '../../src/money/money';
+import { Expression } from '../../src/money/expression';
 
 describe('Bank reduce', () => {
 

@@ -1,4 +1,4 @@
-import { Money } from '../src/money/money';
+import { Money } from '../../src/money/money';
 
 describe('Currency', () => {
 

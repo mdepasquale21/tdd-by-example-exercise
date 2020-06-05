@@ -1,5 +1,5 @@
 import { Money } from './money';
-import { Bank } from '../bank';
+import { Bank } from './bank';
 
 export interface Expression {
     augend;

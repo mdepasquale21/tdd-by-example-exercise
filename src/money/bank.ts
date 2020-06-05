@@ -1,5 +1,5 @@
-import { Expression } from './money/expression';
-import { Money } from './money/money';
+import { Expression } from './expression';
+import { Money } from './money';
 import { Pair } from './pair';
 
 export class Bank {

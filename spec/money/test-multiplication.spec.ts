@@ -1,5 +1,5 @@
-import { Money } from '../src/money/money';
-import { Expression } from '../src/money/expression';
+import { Money } from '../../src/money/money';
+import { Expression } from '../../src/money/expression';
 
 describe('Multiplication of money', () => {
     let five: Expression;
