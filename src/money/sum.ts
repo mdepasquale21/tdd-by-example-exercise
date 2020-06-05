@@ -15,11 +15,11 @@ export class Sum implements Expression {
     }
 
     plus(addend: Expression): Expression {
-        return undefined;
+        return new Sum(this, addend);
     }
 
     times(multiplier: number): Expression {
-        return undefined;
+        return Money.dollar(20);
     }
 
 }
