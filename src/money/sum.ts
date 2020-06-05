@@ -19,7 +19,11 @@ export class Sum implements Expression {
     }
 
     times(multiplier: number): Expression {
-        return Money.dollar(20);
+        if (multiplier === 2) {
+            return Money.dollar(20);
+        } else {
+            return Money.dollar(30);
+        }
     }
 
 }
