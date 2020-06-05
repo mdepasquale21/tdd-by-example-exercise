@@ -6,7 +6,7 @@ import { Sum } from '../src/money/sum';
 describe('Addition', () => {
 
     it('plus returns a sum', () => {
-        const five: Money = Money.dollar(5);
+        const five: Expression = Money.dollar(5);
         const sum: Expression = five.plus(five);
 
         expect(five).toEqual(sum.augend)
@@ -14,7 +14,7 @@ describe('Addition', () => {
     });
 
     it('5 dollars + 5 dollars is 10 dollars', () => {
-        const five: Money = Money.dollar(5);
+        const five: Expression = Money.dollar(5);
         const sum: Expression = five.plus(five);
 
         const bank: Bank = new Bank();

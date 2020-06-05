@@ -1,7 +1,8 @@
 import { Money } from '../src/money/money';
+import { Expression } from '../src/money/expression';
 
 describe('Multiplication of money', () => {
-    let five: Money;
+    let five: Expression;
 
     beforeEach(() => {
         five = Money.dollar(5);
