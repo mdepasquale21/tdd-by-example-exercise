@@ -18,4 +18,17 @@ describe('A sum times money', () => {
         expect(result).toEqual(Money.dollar(20));
     });
 
+    it('(5 dollars + 10 francs) x 3 should be 30 dollars ', () => {
+        const fiveDollars: Expression = Money.dollar(5);
+        const tenFrancs: Expression = Money.franc(10);
+
+        const bank: Bank = new Bank();
+        bank.addRate('CHF', 'USD', 2);
+        const sum: Expression = new Sum(fiveDollars, tenFrancs).times(3);
+
+        const result: Money = bank.reduce(sum, 'USD');
+
+        expect(result).toEqual(Money.dollar(30));
+    });
+
 });
