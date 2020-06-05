@@ -44,4 +44,17 @@ describe('A sum times money', () => {
         expect(result).toEqual(Money.dollar(100));
     });
 
+    it('(10 dollars + 20 francs) x 10 should be 200 dollars ', () => {
+        const tenDollars: Expression = Money.dollar(10);
+        const twentyFrancs: Expression = Money.franc(20);
+
+        const bank: Bank = new Bank();
+        bank.addRate('CHF', 'USD', 2);
+        const sum: Expression = new Sum(tenDollars, twentyFrancs).times(10);
+
+        const result: Money = bank.reduce(sum, 'USD');
+
+        expect(result).toEqual(Money.dollar(200));
+    });
+
 });

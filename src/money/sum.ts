@@ -19,13 +19,7 @@ export class Sum implements Expression {
     }
 
     times(multiplier: number): Expression {
-        if (multiplier === 2) {
-            return Money.dollar(20);
-        } else if (multiplier === 3) {
-            return Money.dollar(30);
-        } else {
-            return Money.dollar(100);
-        }
+        return new Sum(this.augend.times(multiplier), this.addend.times(multiplier));
     }
 
 }
