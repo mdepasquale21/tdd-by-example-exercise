@@ -6,8 +6,8 @@ import { Sum } from '../../src/money/sum';
 describe('A sum times money', () => {
 
     it('(5 dollars + 10 francs) x 2 should be 20 dollars ', () => {
-        const fiveDollars: Expression = Money.dollar(5);
-        const tenFrancs: Expression = Money.franc(10);
+        const fiveDollars: Expression = Money.createMoney(5, 'USD');
+        const tenFrancs: Expression = Money.createMoney(10, 'CHF');
 
         const bank: Bank = new Bank();
         bank.addRate('CHF', 'USD', 2);
@@ -15,12 +15,12 @@ describe('A sum times money', () => {
 
         const result: Money = bank.reduce(sum, 'USD');
 
-        expect(result).toEqual(Money.dollar(20));
+        expect(result).toEqual(Money.createMoney(20, 'USD'));
     });
 
     it('(5 dollars + 10 francs) x 3 should be 30 dollars ', () => {
-        const fiveDollars: Expression = Money.dollar(5);
-        const tenFrancs: Expression = Money.franc(10);
+        const fiveDollars: Expression = Money.createMoney(5, 'USD');
+        const tenFrancs: Expression = Money.createMoney(10, 'CHF');
 
         const bank: Bank = new Bank();
         bank.addRate('CHF', 'USD', 2);
@@ -28,12 +28,12 @@ describe('A sum times money', () => {
 
         const result: Money = bank.reduce(sum, 'USD');
 
-        expect(result).toEqual(Money.dollar(30));
+        expect(result).toEqual(Money.createMoney(30, 'USD'));
     });
 
     it('(10 dollars + 20 francs) x 5 should be 100 dollars ', () => {
-        const tenDollars: Expression = Money.dollar(10);
-        const twentyFrancs: Expression = Money.franc(20);
+        const tenDollars: Expression = Money.createMoney(10, 'USD');
+        const twentyFrancs: Expression = Money.createMoney(20, 'CHF');
 
         const bank: Bank = new Bank();
         bank.addRate('CHF', 'USD', 2);
@@ -41,12 +41,12 @@ describe('A sum times money', () => {
 
         const result: Money = bank.reduce(sum, 'USD');
 
-        expect(result).toEqual(Money.dollar(100));
+        expect(result).toEqual(Money.createMoney(100, 'USD'));
     });
 
     it('(10 dollars + 20 francs) x 10 should be 200 dollars ', () => {
-        const tenDollars: Expression = Money.dollar(10);
-        const twentyFrancs: Expression = Money.franc(20);
+        const tenDollars: Expression = Money.createMoney(10, 'USD');
+        const twentyFrancs: Expression = Money.createMoney(20, 'CHF');
 
         const bank: Bank = new Bank();
         bank.addRate('CHF', 'USD', 2);
@@ -54,7 +54,7 @@ describe('A sum times money', () => {
 
         const result: Money = bank.reduce(sum, 'USD');
 
-        expect(result).toEqual(Money.dollar(200));
+        expect(result).toEqual(Money.createMoney(200, 'USD'));
     });
 
 });

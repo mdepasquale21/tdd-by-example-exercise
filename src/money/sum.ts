@@ -4,14 +4,8 @@ import { Bank } from './bank';
 
 export class Sum implements Expression {
 
-    constructor(public augend: Expression,
-                public addend: Expression) {
-    }
-
-    reduce(bank: Bank, toCurrency: string): Money {
-        const amount: number = this.augend.reduce(bank, toCurrency).amount
-            + this.addend.reduce(bank, toCurrency).amount;
-        return new Money(amount, toCurrency);
+    constructor(private augend: Expression,
+                private addend: Expression) {
     }
 
     plus(addend: Expression): Expression {
@@ -20,6 +14,12 @@ export class Sum implements Expression {
 
     times(multiplier: number): Expression {
         return new Sum(this.augend.times(multiplier), this.addend.times(multiplier));
+    }
+
+    reduce(bank: Bank, toCurrency: string): Money {
+        const amount: number = this.augend.reduce(bank, toCurrency).getAmount()
+            + this.addend.reduce(bank, toCurrency).getAmount();
+        return Money.createMoney(amount, toCurrency);
     }
 
 }

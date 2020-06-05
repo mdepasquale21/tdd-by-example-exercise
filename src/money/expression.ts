@@ -2,13 +2,11 @@ import { Money } from './money';
 import { Bank } from './bank';
 
 export interface Expression {
-    augend;
-    addend;
 
-    reduce(bank: Bank, toCurrency: string): Money;
+    plus(addend: Expression): Expression;
 
     times(multiplier: number): Expression;
 
-    plus(addend: Expression): Expression;
+    reduce(bank: Bank, toCurrency: string): Money;
 
 }

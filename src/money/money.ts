@@ -4,45 +4,37 @@ import { Bank } from './bank';
 
 export class Money implements Expression {
 
-    // todo protected!!
-    constructor(public amount: number,
-                public moneyCurrency: string) {
+    private constructor(private amount: number,
+                        private currency: string) {
     }
 
-    static dollar(amount: number): Money {
-        return new Money(amount, 'USD');
+    static createMoney(amount: number, currency: string): Money {
+        return new Money(amount, currency);
     }
 
-    static franc(amount: number): Money {
-        return new Money(amount, 'CHF');
+    getAmount(): number {
+        return this.amount;
     }
 
-    times(multiplier: number): Expression {
-        return new Money(this.amount * multiplier, this.moneyCurrency);
+    getCurrency(): string {
+        return this.currency;
+    }
+
+    equals(money: Money): boolean {
+        return this.amount === money.amount && this.getCurrency() === money.getCurrency();
     }
 
     plus(addend: Expression): Expression {
         return new Sum(this, addend);
     }
 
-    currency(): string {
-        return this.moneyCurrency;
-    }
-
-    equals(money: Money): boolean {
-        return this.amount === money.amount && this.currency() === money.currency();
-    }
-
-    toString(): string {
-        return this.amount + ' ' + this.moneyCurrency;
+    times(multiplier: number): Expression {
+        return new Money(this.amount * multiplier, this.currency);
     }
 
     reduce(bank: Bank, toCurrency: string): Money {
-        const rate: number = bank.rate(this.currency(), toCurrency);
+        const rate: number = bank.rate(this.getCurrency(), toCurrency);
         return new Money(this.amount / rate, toCurrency);
     }
-
-    addend;
-    augend;
 
 }
