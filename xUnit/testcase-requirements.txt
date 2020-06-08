@@ -1,0 +1,5 @@
+- A method to run a test
+- A method to set up testing environment
+- A method to run multiple tests
+- Write a report of results
+- A method to stop running tests (if failing or not)

@@ -1,0 +1,9 @@
+Money Example:
+    - Remove nasty duplication between Sum.plus() and Money.plus()
+    - Expression should be a class instead of an interface, collecting common code
+    - Is there need for additional tests?
+    - If there's no need for further testing: Review the design, check for lingering duplication (latent design?)
+
+xUnit:
+    -
+
