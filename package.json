@@ -9,8 +9,7 @@
     "unit-test": "nodemon --ext ts --exec npm run _unit-test",
     "_unit-test": "npm run clean && npm run gcp-build && jasmine || exit 0",
     "clean": "gulp",
-    "gcp-build": "tsc -p .",
-    "py-run-xunit": "python"
+    "gcp-build": "tsc -p ."
   },
   "author": "mdepasquale21",
   "license": "ISC",
