@@ -1,5 +1,5 @@
-from xUnit.test_case import TestCase
-from xUnit.was_run import WasRun
+from xUnit.src.test_case import TestCase
+from xUnit.src.was_run import WasRun
 
 
 class TestCaseTest(TestCase):

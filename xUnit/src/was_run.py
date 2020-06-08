@@ -1,4 +1,4 @@
-from xUnit.test_case import TestCase
+from xUnit.src.test_case import TestCase
 
 
 class WasRun(TestCase):

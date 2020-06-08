@@ -1,4 +1,4 @@
-from xUnit.was_run import WasRun
+from xUnit.src.was_run import WasRun
 
 test = WasRun("testMethod")
 print(test.wasRun)
