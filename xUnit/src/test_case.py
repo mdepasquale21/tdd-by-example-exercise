@@ -12,14 +12,11 @@ class TestCase:
     def run(self):
         result = TestResult()
         result.testStarted()
-        try:
-            self.setUp()
-        except:
-            return 'Error during setUp!'
+        self.setUp()
         try:
             method = getattr(self, self.methodName)
             method()
-        except:
+        except ZeroDivisionError:
             result.testFailed()
         self.tearDown()
         return result

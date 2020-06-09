@@ -11,7 +11,7 @@ class WasRun(TestCase):
         self.log += 'testMethod '
 
     def testBrokenMethod(self):
-        raise Exception
+        raise ZeroDivisionError
 
     def setUp(self):
         self.wasRun = None
