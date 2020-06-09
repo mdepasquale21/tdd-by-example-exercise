@@ -3,4 +3,4 @@
 - A method to deallocate external resources (a tearDown method)       x
 - Invoke tearDown even if test method fails
 - A method to run multiple tests
-- Write a report of results
+- Write a report of results                                           x
