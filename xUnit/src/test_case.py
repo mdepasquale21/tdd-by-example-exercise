@@ -12,7 +12,10 @@ class TestCase:
     def run(self):
         result = TestResult()
         result.testStarted()
-        self.setUp()
+        try:
+            self.setUp()
+        except:
+            return 'Error during setUp!'
         try:
             method = getattr(self, self.methodName)
             method()
