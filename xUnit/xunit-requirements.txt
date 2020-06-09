@@ -2,7 +2,8 @@
 - A method to set up testing environment                              x
 - A method to deallocate external resources (a tearDown method)       x
 - Invoke tearDown even if test method fails
-- A method to run multiple tests
+- A method to run multiple tests                                      x
 - Write a report of results                                           x
 - Report failed tests                                                 x
 - Catch and report setUp errors                                       x
+- Create TestSuite from a TestCase class
