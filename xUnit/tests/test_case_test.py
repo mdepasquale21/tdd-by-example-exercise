@@ -27,9 +27,9 @@ class TestCaseTest(TestCase):
         assert (result.summary() == '1 run, 1 failed')
 
     def testErrorDuringSetUp(self):
-        """?????????"""
-        test = WasRun("testMethod")
-        result = test.run()
+        result = TestResult()
+        result.testStarted()
+        result.brokenSetUp()
         assert (result.summary() == 'Error during setUp!')
 
     def testSuiteTest(self):
@@ -44,4 +44,5 @@ TestCaseTest("testTemplateMethod").run()
 TestCaseTest("testResult").run()
 TestCaseTest("testFailedResult").run()
 TestCaseTest("testFailedResultFormatting").run()
-TestCaseTest("testSuiteTest").run()
+TestCaseTest("testErrorDuringSetUp").run()
+# TestCaseTest("testSuiteTest").run()

@@ -5,4 +5,4 @@
 - A method to run multiple tests
 - Write a report of results                                           x
 - Report failed tests                                                 x
-- Catch and report setUp errors (?????????)
+- Catch and report setUp errors                                       x
