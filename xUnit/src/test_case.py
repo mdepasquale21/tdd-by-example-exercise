@@ -8,7 +8,12 @@ class TestCase:
 
     def run(self, result):
         result.testStarted()
-        self.setUp()
+        try:
+            self.setUp()
+        except RuntimeError:
+            result.brokenSetUp()
+            self.tearDown()
+            return result
         try:
             method = getattr(self, self.methodName)
             method()

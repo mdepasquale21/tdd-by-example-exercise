@@ -30,8 +30,8 @@ class TestCaseTest(TestCase):
         assert (self.result.summary() == '1 run, 1 failed')
 
     def testErrorDuringSetUp(self):
-        self.result.testStarted()
-        self.result.brokenSetUp()
+        test = WasRun("testMethod", True)
+        test.run(self.result)
         assert (self.result.summary() == 'Error during setUp!')
 
     def testSuiteTest(self):

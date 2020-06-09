@@ -1,7 +1,7 @@
 - A method to run a test                                              x
 - A method to set up testing environment                              x
 - A method to deallocate external resources (a tearDown method)       x
-- Invoke tearDown even if test method fails
+- Invoke tearDown even if test method fails                           x
 - A method to run multiple tests                                      x
 - Write a report of results                                           x
 - Report failed tests                                                 x

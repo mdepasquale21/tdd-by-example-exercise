@@ -5,5 +5,4 @@ Money Example:
     - If there's no need for further testing: Review the design, check for lingering duplication (latent design?)
 
 xUnit:
-    -
-
+    - Create TestSuite from a TestCase class (last requirement missing)
