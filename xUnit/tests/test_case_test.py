@@ -29,5 +29,5 @@ class TestCaseTest(TestCase):
 
 TestCaseTest("testTemplateMethod").run()
 TestCaseTest("testResult").run()
-# TestCaseTest("testFailedResult").run()
+TestCaseTest("testFailedResult").run()
 TestCaseTest("testFailedResultFormatting").run()
