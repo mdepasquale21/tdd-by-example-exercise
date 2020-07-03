@@ -57,8 +57,8 @@ fdescribe('Triangle', () => {
         });
 
     });
-    
-    describe('if the 3 numbers passed cannot form a triangle', () => {
+
+    fdescribe('if the 3 numbers passed cannot form a triangle', () => {
 
         // it('should throw another exception', () => {
         //     expect(() => {

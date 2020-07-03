@@ -14,9 +14,19 @@ export class Triangle extends Shape {
     }
 
     cannotForm(): boolean {
-        return this.definedSides[0] >= this.definedSides[1] + this.definedSides[2] ||
-            this.definedSides[1] >= this.definedSides[0] + this.definedSides[2] ||
-            this.definedSides[2] >= this.definedSides[0] + this.definedSides[1]
+        let boolArray: boolean[] = [];
+        for (let i = 0; i < this.definedSides.length; i++) {
+            const cloneDefinedSides = this.definedSides.slice();
+            cloneDefinedSides.splice(i, 1);
+            console.log(cloneDefinedSides)
+            console.log(this.definedSides)
+            boolArray.push(cloneDefinedSides.reduce((a, b) => a + b) > this.definedSides[i]);
+        }
+        console.log(boolArray)
+        return boolArray.some((el) => !el);
+        // return this.definedSides[0] >= this.definedSides[1] + this.definedSides[2] ||
+        //     this.definedSides[1] >= this.definedSides[0] + this.definedSides[2] ||
+        //     this.definedSides[2] >= this.definedSides[0] + this.definedSides[1]
     }
 
 }
