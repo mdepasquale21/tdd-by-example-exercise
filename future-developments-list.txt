@@ -6,3 +6,7 @@ Money Example:
 
 xUnit:
     - Create TestSuite from a TestCase class (last requirement missing)
+
+Triangle exercise
+
+Fibonacci exercise
