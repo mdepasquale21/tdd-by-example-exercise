@@ -19,6 +19,6 @@ export abstract class Shape {
         return this.getRightNumberOfSides() !== this.definedSides.length;
     }
 
-    protected abstract cannotForm(): boolean;
+    abstract cannotForm(): boolean;
 
 }

@@ -8,13 +8,15 @@ export class Triangle extends Shape {
         if (this.isWrongShape()) {
             throw 'Error: incorrect shape!';
         }
-        if (this.cannotForm()) {
-            throw 'Error: these 3 sides cannot form a triangle!';
-        }
+        // if (this.cannotForm()) {
+        //     throw 'Error: these 3 sides cannot form a triangle!';
+        // }
     }
 
     cannotForm(): boolean {
-        return false;
+        return this.definedSides[0] >= this.definedSides[1] + this.definedSides[2] ||
+            this.definedSides[1] >= this.definedSides[0] + this.definedSides[2] ||
+            this.definedSides[2] >= this.definedSides[0] + this.definedSides[1]
     }
 
 }
