@@ -117,7 +117,7 @@ fdescribe('Triangle', () => {
 
     });
 
-    describe('if isosceles', () => {
+    xdescribe('if isosceles', () => {
 
         it('should return 2', () => {
             const triangle = new Triangle([5, 4, 5]);
