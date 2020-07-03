@@ -5,8 +5,8 @@ export class Triangle extends Shape {
 
     constructor(sides: number[]) {
         super(sides)
-        if (sides.filter((s) => !!s).length !== this.numberOfSides) {
-            throw 'Error: not a triangle!';
+        if (this.isNotCorrectShape()) {
+            throw 'Error: incorrect shape!';
         }
     }
 
