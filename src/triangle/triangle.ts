@@ -1,10 +1,10 @@
-import { Shape } from './shape';
+export class Triangle {
 
-export class Triangle extends Shape {
-    rightNumberOfSides = 3;
+    private readonly rightNumberOfSides = 3;
+    private definedSides: number[];
 
     constructor(sides: number[]) {
-        super(sides)
+        this.setDefinedSides(sides);
         if (this.isWrongShape()) {
             throw 'Error: incorrect shape!';
         }
@@ -13,7 +13,15 @@ export class Triangle extends Shape {
         }
     }
 
-    cannotForm(): boolean {
+    private setDefinedSides(sides: number[]) {
+        this.definedSides = sides.filter((s: number) => !!s);
+    }
+
+    private isWrongShape() {
+        return this.getRightNumberOfSides() !== this.definedSides.length;
+    }
+
+    private cannotForm(): boolean {
         let canFormTriangleArray: boolean[] = [];
         for (let i = 0; i < this.definedSides.length; i++) {
             const cloneDefinedSides = this.definedSides.slice();
@@ -25,6 +33,10 @@ export class Triangle extends Shape {
 
     private isSideLessThanSumOfOtherSides(cloneDefinedSides: number[], i: number) {
         return cloneDefinedSides.reduce((a, b) => a + b) > this.definedSides[i];
+    }
+
+    public getRightNumberOfSides(): number {
+        return this.rightNumberOfSides;
     }
 
 }
