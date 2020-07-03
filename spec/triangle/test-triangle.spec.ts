@@ -8,7 +8,7 @@ fdescribe('Triangle', () => {
         it('the triangle should be formed', () => {
             expect(() => {
                 new Triangle([3, 6, 7]);
-            }).not.toThrow('Error: these 3 sides cannot form a triangle!');
+            }).not.toThrow();
         });
 
         it('should have 3 sides', () => {
@@ -18,10 +18,16 @@ fdescribe('Triangle', () => {
 
         describe('if it is passed more than 3 sides but actually 3 are defined', () => {
 
-            it('should still form a triangle', () => {
+            it('should still form a triangle if they can form a triangle', () => {
                 expect(() => {
                     new Triangle([3, 6, undefined, 4, null]);
-                }).not.toThrow('Error: incorrect shape!');
+                }).not.toThrow();
+            });
+
+            it('should not form a triangle if they cannot form a triangle', () => {
+                expect(() => {
+                    new Triangle([3, 6, undefined, 40, null]);
+                }).toThrow('Error: these 3 sides cannot form a triangle!');
             });
 
         });
