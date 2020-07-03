@@ -38,7 +38,7 @@ fdescribe('Triangle', () => {
         it('should throw an exception because it\'s not a triangle', () => {
             expect(() => {
                 new Triangle([3, 6, undefined]);
-            }).toThrow('Error: incorrect shape!');
+            }).toThrow('Error: incorrect input! Must pass 3 positive numbers');
         });
 
     });
@@ -48,7 +48,7 @@ fdescribe('Triangle', () => {
         it('should throw the same exception because not a triangle', () => {
             expect(() => {
                 new Triangle([3, 6]);
-            }).toThrow('Error: incorrect shape!');
+            }).toThrow('Error: incorrect input! Must pass 3 positive numbers');
 
         });
 
@@ -59,7 +59,7 @@ fdescribe('Triangle', () => {
         it('should throw again the same exception because not a triangle', () => {
             expect(() => {
                 new Triangle([3, 6, 5, 6, 7]);
-            }).toThrow('Error: incorrect shape!');
+            }).toThrow('Error: incorrect input! Must pass 3 positive numbers');
         });
 
     });
@@ -74,6 +74,45 @@ fdescribe('Triangle', () => {
             expect(() => {
                 new Triangle([3, 6, 1000, null, undefined]);
             }).toThrow('Error: these 3 sides cannot form a triangle!');
+        });
+
+    });
+
+    describe('if a negative number is passed', () => {
+
+        describe('if there are 3 other positive numbers in input', () => {
+
+            it('should form the triangle if those 3 can form', () => {
+                expect(() => {
+                    new Triangle([3, 6, 7, -2, undefined]);
+                }).not.toThrow();
+            });
+
+            it('should not form the triangle if those 3 cannot form', () => {
+                expect(() => {
+                    new Triangle([3, 6, 70, -2, undefined]);
+                }).toThrow('Error: these 3 sides cannot form a triangle!');
+            });
+
+        });
+
+        describe('if there are not 3 positive numbers in input', () => {
+
+            it('should throw an error', () => {
+                expect(() => {
+                    new Triangle([3, 6, -2, undefined]);
+                }).toThrow('Error: incorrect input! Must pass 3 positive numbers');
+            });
+
+        });
+
+    });
+
+    describe('if equilateral', () => {
+
+        it('should return 1', () => {
+            const triangle = new Triangle([5, 5, 5]);
+            expect(triangle.getKind()).toBe(1);
         });
 
     });

@@ -5,8 +5,8 @@ export class Triangle {
 
     constructor(sides: number[]) {
         this.setDefinedSides(sides);
-        if (this.isWrongShape()) {
-            throw 'Error: incorrect shape!';
+        if (this.incorrectInput()) {
+            throw 'Error: incorrect input! Must pass 3 positive numbers';
         }
         if (this.cannotForm()) {
             throw 'Error: these 3 sides cannot form a triangle!';
@@ -14,10 +14,10 @@ export class Triangle {
     }
 
     private setDefinedSides(sides: number[]) {
-        this.definedSides = sides.filter((s: number) => !!s);
+        this.definedSides = sides.filter((s: number) => !!s && s>=0);
     }
 
-    private isWrongShape() {
+    private incorrectInput() {
         return this.getRightNumberOfSides() !== this.definedSides.length;
     }
 
@@ -37,6 +37,10 @@ export class Triangle {
 
     public getRightNumberOfSides(): number {
         return this.rightNumberOfSides;
+    }
+
+    public getKind(): number {
+        return 1;
     }
 
 }
