@@ -41,8 +41,27 @@ export class Triangle {
         return this.rightNumberOfSides;
     }
 
-    public getType(): number {
-        return TriangleType.Equilateral;
+    public getType(): TriangleType {
+        if (this.isEquilateral()) {
+            return TriangleType.Equilateral;
+        } else if (this.isIsosceles()) {
+            return TriangleType.Isosceles;
+        } else {
+            return TriangleType.Scalene;
+        }
+    }
+
+    private isEquilateral(): boolean {
+        for (let i = 0; i < this.definedSides.length - 1; i++) {
+            if(this.definedSides[i] !== this.definedSides[i+1]) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private isIsosceles(): boolean {
+        return false;
     }
 
 }
