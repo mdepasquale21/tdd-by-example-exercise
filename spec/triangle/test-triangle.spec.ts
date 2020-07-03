@@ -6,8 +6,9 @@ fdescribe('Triangle', () => {
     describe('if the 3 numbers passed can form a triangle', () => {
 
         it('the triangle should be formed', () => {
-            const triangle: Shape = new Triangle([3, 6, 7]);
-            expect(triangle.cannotForm()).toBe(false);
+            expect(() => {
+                new Triangle([3, 6, 7]);
+            }).not.toThrow('Error: these 3 sides cannot form a triangle!');
         });
 
         it('should have 3 sides', () => {
@@ -58,17 +59,16 @@ fdescribe('Triangle', () => {
 
     });
 
-    fdescribe('if the 3 numbers passed cannot form a triangle', () => {
+    describe('if the 3 numbers passed cannot form a triangle', () => {
 
-        // it('should throw another exception', () => {
-        //     expect(() => {
-        //         new Triangle([3, 6, 1000]);
-        //     }).toThrow('Error: these 3 sides cannot form a triangle!');
-        // });
+        it('should throw another exception', () => {
+            expect(() => {
+                new Triangle([3, 6, 1000]);
+            }).toThrow('Error: these 3 sides cannot form a triangle!');
 
-        it('triangle cannot be formed', () => {
-            const cannotFormTriangle = new Triangle([3, 6, 1000]);
-            expect(cannotFormTriangle.cannotForm()).toBe(true);
+            expect(() => {
+                new Triangle([3, 6, 1000, null, undefined]);
+            }).toThrow('Error: these 3 sides cannot form a triangle!');
         });
 
     });

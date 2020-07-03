@@ -8,25 +8,23 @@ export class Triangle extends Shape {
         if (this.isWrongShape()) {
             throw 'Error: incorrect shape!';
         }
-        // if (this.cannotForm()) {
-        //     throw 'Error: these 3 sides cannot form a triangle!';
-        // }
+        if (this.cannotForm()) {
+            throw 'Error: these 3 sides cannot form a triangle!';
+        }
     }
 
     cannotForm(): boolean {
-        let boolArray: boolean[] = [];
+        let canFormTriangleArray: boolean[] = [];
         for (let i = 0; i < this.definedSides.length; i++) {
             const cloneDefinedSides = this.definedSides.slice();
             cloneDefinedSides.splice(i, 1);
-            console.log(cloneDefinedSides)
-            console.log(this.definedSides)
-            boolArray.push(cloneDefinedSides.reduce((a, b) => a + b) > this.definedSides[i]);
+            canFormTriangleArray.push(this.isSideLessThanSumOfOtherSides(cloneDefinedSides, i));
         }
-        console.log(boolArray)
-        return boolArray.some((el) => !el);
-        // return this.definedSides[0] >= this.definedSides[1] + this.definedSides[2] ||
-        //     this.definedSides[1] >= this.definedSides[0] + this.definedSides[2] ||
-        //     this.definedSides[2] >= this.definedSides[0] + this.definedSides[1]
+        return canFormTriangleArray.some((el) => !el);
+    }
+
+    private isSideLessThanSumOfOtherSides(cloneDefinedSides: number[], i: number) {
+        return cloneDefinedSides.reduce((a, b) => a + b) > this.definedSides[i];
     }
 
 }
