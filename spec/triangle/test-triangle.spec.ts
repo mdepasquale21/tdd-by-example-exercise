@@ -112,7 +112,16 @@ fdescribe('Triangle', () => {
 
         it('should return 1', () => {
             const triangle = new Triangle([5, 5, 5]);
-            expect(triangle.getKind()).toBe(1);
+            expect(triangle.getType()).toBe(1);
+        });
+
+    });
+
+    describe('if isosceles', () => {
+
+        it('should return 2', () => {
+            const triangle = new Triangle([5, 4, 5]);
+            expect(triangle.getType()).toBe(2);
         });
 
     });

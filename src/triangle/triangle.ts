@@ -1,3 +1,5 @@
+import { TriangleType } from './triangle.type';
+
 export class Triangle {
 
     private readonly rightNumberOfSides = 3;
@@ -14,7 +16,7 @@ export class Triangle {
     }
 
     private setDefinedSides(sides: number[]) {
-        this.definedSides = sides.filter((s: number) => !!s && s>=0);
+        this.definedSides = sides.filter((s: number) => !!s && s >= 0);
     }
 
     private incorrectInput() {
@@ -39,8 +41,8 @@ export class Triangle {
         return this.rightNumberOfSides;
     }
 
-    public getKind(): number {
-        return 1;
+    public getType(): number {
+        return TriangleType.Equilateral;
     }
 
 }
