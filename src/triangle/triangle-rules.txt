@@ -2,3 +2,4 @@ Given 3 integers representing the length of the sides of a triangle, return:
 1 <=> equilateral
 2 <=> isosceles
 3 <=> scalene
+throw an exception if triangle is not well formed
