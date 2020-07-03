@@ -1,18 +1,24 @@
 export abstract class Shape {
 
-    protected readonly numberOfSides: number;
+    protected readonly rightNumberOfSides: number;
     protected definedSides: number[];
 
     protected constructor(sides: number[]) {
-        this.definedSides = sides.filter((s) => !!s);
+        this.setDefinedSides(sides);
     }
 
-    getNumberOfSides(): number {
-        return this.numberOfSides;
+    private setDefinedSides(sides: number[]) {
+        this.definedSides = sides.filter((s: number) => !!s);
     }
 
-    protected isNotCorrectShape() {
-        return this.definedSides.length !== this.numberOfSides;
+    getRightNumberOfSides(): number {
+        return this.rightNumberOfSides;
     }
+
+    protected isWrongShape() {
+        return this.getRightNumberOfSides() !== this.definedSides.length;
+    }
+
+    protected abstract cannotForm(): boolean;
 
 }
