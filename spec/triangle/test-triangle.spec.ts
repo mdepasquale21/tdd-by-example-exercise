@@ -104,6 +104,42 @@ fdescribe('Triangle', () => {
 
     });
 
+    describe('if 0 is passed', () => {
+
+        describe('if there are other 3 strictly positive numbers in input', () => {
+
+            it('should form the triangle if those 3 can form', () => {
+                expect(() => {
+                    new Triangle([4, 5, 7, 0, 0]);
+                }).not.toThrow();
+            });
+
+            it('should not form if those 3 cannot form', () => {
+                expect(() => {
+                    new Triangle([3, 6, 1000, 0]);
+                }).toThrow('Error: these 3 sides cannot form a triangle!');
+            });
+
+        });
+
+        describe('if there are no other 3 strictly positive numbers in input', () => {
+
+            it('should throw an exception', () => {
+                expect(() => {
+                    new Triangle([3, 6, -2, 0, null, 0, 0]);
+                }).toThrow('Error: incorrect input! Must pass 3 positive numbers');
+            });
+
+            it('should throw an exception even if full 0', () => {
+                expect(() => {
+                    new Triangle([0, 0, 0]);
+                }).toThrow('Error: incorrect input! Must pass 3 positive numbers');
+            });
+
+        });
+
+    });
+
     describe('if equilateral', () => {
 
         it('should return 1', () => {

@@ -6,8 +6,7 @@ export class Triangle {
     private sides: number[];
 
     constructor(sides: number[]) {
-        this.setDefinedSides(sides);
-        this.orderSides();
+        this.setSides(sides);
         if (this.incorrectInput()) {
             throw 'Error: incorrect input! Must pass 3 positive numbers';
         }
@@ -17,12 +16,10 @@ export class Triangle {
         console.log('Triangle formed with', this.sides)
     }
 
-    private setDefinedSides(sides: number[]) {
-        this.sides = sides.filter((s: number) => !!s && s >= 0);
-    }
-
-    private orderSides() {
-        this.sides = this.sides.sort((a, b) => a - b);
+    private setSides(sides: number[]) {
+        this.sides = sides
+            .filter((s: number) => !!s && s > 0)
+            .sort((a, b) => a - b);
     }
 
     private incorrectInput() {
