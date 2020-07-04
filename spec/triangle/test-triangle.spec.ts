@@ -172,4 +172,24 @@ fdescribe('Triangle', () => {
 
     });
 
+    describe('try non integer numbers', () => {
+
+        describe('same rules', () => {
+
+            it('should form if can form', () => {
+                expect(() => {
+                    new Triangle([2.5, 3.43, 5.32145]);
+                }).not.toThrow();
+            });
+
+            it('should not form if cannot', () => {
+                expect(() => {
+                    new Triangle([0.5, 0.67, 10.4356]);
+                }).toThrow('Error: these 3 sides cannot form a triangle!');
+            });
+
+        });
+
+    });
+
 });
