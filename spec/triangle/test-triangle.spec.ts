@@ -149,11 +149,25 @@ fdescribe('Triangle', () => {
 
     });
 
-    xdescribe('if isosceles', () => {
+    describe('if isosceles', () => {
 
         it('should return 2', () => {
             const triangle = new Triangle([5, 4, 5]);
             expect(triangle.getType()).toBe(2);
+        });
+
+        it('should return 2', () => {
+            const triangle = new Triangle([3, 3, 5]);
+            expect(triangle.getType()).toBe(2);
+        });
+
+    });
+
+    describe('if scalene', () => {
+
+        it('should return 3', () => {
+            const triangle = new Triangle([4, 7, 9]);
+            expect(triangle.getType()).toBe(3);
         });
 
     });

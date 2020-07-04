@@ -54,7 +54,7 @@ export class Triangle {
     }
 
     private isIsosceles(): boolean {
-        return false;
+        return this.sides[2] === this.sides[1] || this.sides[1] === this.sides[0];
     }
 
 }
