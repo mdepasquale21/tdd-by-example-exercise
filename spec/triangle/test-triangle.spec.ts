@@ -26,7 +26,7 @@ fdescribe('Triangle', () => {
             it('should not form a triangle if they cannot form a triangle', () => {
                 expect(() => {
                     new Triangle([3, 6, undefined, 40, null]);
-                }).toThrow('Error: these 3 sides cannot form a triangle!');
+                }).toThrow(Triangle.cannotFormATriangleErrorMessage());
             });
 
         });
@@ -38,7 +38,7 @@ fdescribe('Triangle', () => {
         it('should throw an exception because it\'s not a triangle', () => {
             expect(() => {
                 new Triangle([3, 6, undefined]);
-            }).toThrow('Error: incorrect input! Must pass 3 positive numbers');
+            }).toThrow(Triangle.incorrectInputErrorMessage());
         });
 
     });
@@ -48,7 +48,7 @@ fdescribe('Triangle', () => {
         it('should throw the same exception because not a triangle', () => {
             expect(() => {
                 new Triangle([3, 6]);
-            }).toThrow('Error: incorrect input! Must pass 3 positive numbers');
+            }).toThrow(Triangle.incorrectInputErrorMessage());
 
         });
 
@@ -59,7 +59,7 @@ fdescribe('Triangle', () => {
         it('should throw again the same exception because not a triangle', () => {
             expect(() => {
                 new Triangle([3, 6, 5, 6, 7]);
-            }).toThrow('Error: incorrect input! Must pass 3 positive numbers');
+            }).toThrow(Triangle.incorrectInputErrorMessage());
         });
 
     });
@@ -69,7 +69,7 @@ fdescribe('Triangle', () => {
         it('should throw another exception', () => {
             expect(() => {
                 new Triangle([3, 6, 1000]);
-            }).toThrow('Error: these 3 sides cannot form a triangle!');
+            }).toThrow(Triangle.cannotFormATriangleErrorMessage());
         });
 
     });
@@ -87,7 +87,7 @@ fdescribe('Triangle', () => {
             it('should not form the triangle if those 3 cannot form', () => {
                 expect(() => {
                     new Triangle([3, 6, 70, -2, undefined]);
-                }).toThrow('Error: these 3 sides cannot form a triangle!');
+                }).toThrow(Triangle.cannotFormATriangleErrorMessage());
             });
 
         });
@@ -97,7 +97,7 @@ fdescribe('Triangle', () => {
             it('should throw an error', () => {
                 expect(() => {
                     new Triangle([3, 6, -2, undefined]);
-                }).toThrow('Error: incorrect input! Must pass 3 positive numbers');
+                }).toThrow(Triangle.incorrectInputErrorMessage());
             });
 
         });
@@ -117,7 +117,7 @@ fdescribe('Triangle', () => {
             it('should not form if those 3 cannot form', () => {
                 expect(() => {
                     new Triangle([3, 6, 1000, 0]);
-                }).toThrow('Error: these 3 sides cannot form a triangle!');
+                }).toThrow(Triangle.cannotFormATriangleErrorMessage());
             });
 
         });
@@ -127,13 +127,13 @@ fdescribe('Triangle', () => {
             it('should throw an exception', () => {
                 expect(() => {
                     new Triangle([3, 6, -2, 0, null, 0, 0]);
-                }).toThrow('Error: incorrect input! Must pass 3 positive numbers');
+                }).toThrow(Triangle.incorrectInputErrorMessage());
             });
 
             it('should throw an exception even if full 0', () => {
                 expect(() => {
                     new Triangle([0, 0, 0]);
-                }).toThrow('Error: incorrect input! Must pass 3 positive numbers');
+                }).toThrow(Triangle.incorrectInputErrorMessage());
             });
 
         });
@@ -185,7 +185,7 @@ fdescribe('Triangle', () => {
             it('should not form if cannot', () => {
                 expect(() => {
                     new Triangle([0.5, 0.67, 10.4356]);
-                }).toThrow('Error: these 3 sides cannot form a triangle!');
+                }).toThrow(Triangle.cannotFormATriangleErrorMessage());
             });
 
         });

@@ -8,10 +8,10 @@ export class Triangle {
     constructor(sides: number[]) {
         this.setSides(sides);
         if (this.incorrectInput()) {
-            throw 'Error: incorrect input! Must pass 3 positive numbers';
+            throw Triangle.incorrectInputErrorMessage();
         }
         if (this.cannotForm()) {
-            throw 'Error: these 3 sides cannot form a triangle!';
+            throw Triangle.cannotFormATriangleErrorMessage();
         }
         console.log('Triangle formed with', this.sides)
     }
@@ -56,6 +56,14 @@ export class Triangle {
     private isIsosceles(): boolean {
         return this.sides[2] === this.sides[1] && this.sides[1] !== this.sides[0]
             || this.sides[1] === this.sides[0] && this.sides[1] !== this.sides[2];
+    }
+
+    public static incorrectInputErrorMessage(): string {
+        return 'Error: incorrect input! Must pass 3 positive numbers';
+    }
+
+    public static cannotFormATriangleErrorMessage(): string {
+        return 'Error: these 3 sides cannot form a triangle!';
     }
 
 }
