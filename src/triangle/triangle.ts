@@ -2,43 +2,39 @@ import { TriangleType } from './triangle.type';
 
 export class Triangle {
 
-    private readonly rightNumberOfSides = 3;
-    private definedSides: number[];
+    private readonly numberOfSides = 3;
+    private sides: number[];
 
     constructor(sides: number[]) {
         this.setDefinedSides(sides);
+        this.orderSides();
         if (this.incorrectInput()) {
             throw 'Error: incorrect input! Must pass 3 positive numbers';
         }
         if (this.cannotForm()) {
             throw 'Error: these 3 sides cannot form a triangle!';
         }
+        console.log('Triangle formed with', this.sides)
     }
 
     private setDefinedSides(sides: number[]) {
-        this.definedSides = sides.filter((s: number) => !!s && s >= 0);
+        this.sides = sides.filter((s: number) => !!s && s >= 0);
+    }
+
+    private orderSides() {
+        this.sides = this.sides.sort((a, b) => a - b);
     }
 
     private incorrectInput() {
-        return this.getRightNumberOfSides() !== this.definedSides.length;
+        return this.getNumberOfSides() !== this.sides.length;
     }
 
     private cannotForm(): boolean {
-        let canFormTriangleArray: boolean[] = [];
-        for (let i = 0; i < this.definedSides.length; i++) {
-            const cloneDefinedSides = this.definedSides.slice();
-            cloneDefinedSides.splice(i, 1);
-            canFormTriangleArray.push(this.isSideLessThanSumOfOtherSides(cloneDefinedSides, i));
-        }
-        return canFormTriangleArray.some((el) => !el);
+        return this.sides[2] > this.sides[0] + this.sides[1];
     }
 
-    private isSideLessThanSumOfOtherSides(cloneDefinedSides: number[], i: number) {
-        return cloneDefinedSides.reduce((a, b) => a + b) > this.definedSides[i];
-    }
-
-    public getRightNumberOfSides(): number {
-        return this.rightNumberOfSides;
+    public getNumberOfSides(): number {
+        return this.numberOfSides;
     }
 
     public getType(): TriangleType {
@@ -52,8 +48,8 @@ export class Triangle {
     }
 
     private isEquilateral(): boolean {
-        for (let i = 0; i < this.definedSides.length - 1; i++) {
-            if(this.definedSides[i] !== this.definedSides[i+1]) {
+        for (let i = 0; i < this.sides.length - 1; i++) {
+            if (this.sides[i] !== this.sides[i + 1]) {
                 return false;
             }
         }

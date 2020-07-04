@@ -12,7 +12,7 @@ fdescribe('Triangle', () => {
 
         it('should have 3 sides', () => {
             const triangle = new Triangle([3, 6, 7]);
-            expect(triangle.getRightNumberOfSides()).toBe(3);
+            expect(triangle.getNumberOfSides()).toBe(3);
         });
 
         describe('if it is passed more than 3 sides but actually 3 are defined', () => {
@@ -69,10 +69,6 @@ fdescribe('Triangle', () => {
         it('should throw another exception', () => {
             expect(() => {
                 new Triangle([3, 6, 1000]);
-            }).toThrow('Error: these 3 sides cannot form a triangle!');
-
-            expect(() => {
-                new Triangle([3, 6, 1000, null, undefined]);
             }).toThrow('Error: these 3 sides cannot form a triangle!');
         });
 
