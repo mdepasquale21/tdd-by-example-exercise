@@ -1,5 +1,12 @@
+REQUIREMENTS
 Given 3 integers representing the length of the sides of a triangle, return:
 1 <=> equilateral
 2 <=> isosceles
 3 <=> scalene
 throw an exception if triangle is not well formed
+
+SMELLS
+- Probably a class is overkill for this exercise, but I wanted to implement something complicated
+- Tests do not require this kind of design now, but in a more general frame Triangle might be a subclass of a Shape or Polygon maybe?
+- Still don't know if it is better passing an array input or 3 numbers (array easy to manipulate, 3 numbers would avoid array length problems)
+- getType has a huge conditional, might require subclasses of Triangle??
