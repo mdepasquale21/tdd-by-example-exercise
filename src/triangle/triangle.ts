@@ -35,10 +35,10 @@ export class Triangle {
     }
 
     public getType(): TriangleType {
-        if (this.isEquilateral()) {
-            return TriangleType.Equilateral;
-        } else if (this.isIsosceles()) {
+        if (this.isIsosceles()) {
             return TriangleType.Isosceles;
+        } else if (this.isEquilateral()) {
+            return TriangleType.Equilateral;
         } else {
             return TriangleType.Scalene;
         }
@@ -54,7 +54,8 @@ export class Triangle {
     }
 
     private isIsosceles(): boolean {
-        return this.sides[2] === this.sides[1] || this.sides[1] === this.sides[0];
+        return this.sides[2] === this.sides[1] && this.sides[1] !== this.sides[0]
+            || this.sides[1] === this.sides[0] && this.sides[1] !== this.sides[2];
     }
 
 }
