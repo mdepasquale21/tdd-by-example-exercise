@@ -10,11 +10,6 @@ fdescribe('Triangle', () => {
             }).not.toThrow();
         });
 
-        it('should have 3 sides', () => {
-            const triangle = new Triangle([3, 6, 7]);
-            expect(triangle.getNumberOfSides()).toBe(3);
-        });
-
         describe('if it is passed more than 3 sides but actually 3 are defined', () => {
 
             it('should still form a triangle if they can form a triangle', () => {
