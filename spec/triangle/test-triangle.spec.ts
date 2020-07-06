@@ -1,6 +1,6 @@
 import { Triangle } from '../../src/triangle/triangle';
 
-fdescribe('Triangle', () => {
+describe('Triangle', () => {
 
     describe('if the 3 numbers passed can form a triangle', () => {
 
