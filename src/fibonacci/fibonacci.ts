@@ -1,15 +1,17 @@
+import { FibonacciItem } from './fibonacci.types';
+
 export class Fibonacci {
 
-    constructor(private indexNumber: number) {
-    }
-
-    get() {
-        if (this.indexNumber === 2) {
-            return 1;
-        } else if (this.indexNumber === 3) {
-            return 2
+   static getItem(index: number): FibonacciItem {
+        let value: number;
+        if (index === 2) {
+            value = 1;
+        } else if (index === 3) {
+            value = 2;
+        } else {
+            value = index;
         }
-        return this.indexNumber;
+        return {index: index, value: value};
     }
 
 }
