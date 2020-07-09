@@ -1,15 +1,15 @@
 export class Fibonacci {
 
-    constructor(private length: number) {
+    constructor(private indexNumber: number) {
     }
 
     get() {
-        if (this.length === 2) {
+        if (this.indexNumber === 2) {
             return 1;
-        } else if (this.length === 3) {
+        } else if (this.indexNumber === 3) {
             return 2
         }
-        return this.length;
+        return this.indexNumber;
     }
 
 }

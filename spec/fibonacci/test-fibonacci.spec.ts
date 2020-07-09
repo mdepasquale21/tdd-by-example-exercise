@@ -2,29 +2,18 @@ import { Fibonacci } from '../../src/fibonacci/fibonacci';
 
 fdescribe('Fibonacci', () => {
 
-    it('first number of the sequence should be 0', () => {
-        const fibonacci = new Fibonacci(0);
-        expect(fibonacci.get()).toBe(0);
-    });
+    const cases = [
+        {index: 0, value: 0},
+        {index: 1, value: 1},
+        {index: 2, value: 1},
+        {index: 3, value: 2},
+        // {index: 4, value: 3}
+    ];
 
-    it('second number of the sequence should be 1', () => {
-        const fibonacci = new Fibonacci(1);
-        expect(fibonacci.get()).toBe(1);
-    });
-
-    it('third number of the sequence should be 1', () => {
-        const fibonacci = new Fibonacci(2);
-        expect(fibonacci.get()).toBe(1);
-    });
-
-    it('fourth number of the sequence should be 2', () => {
-        const fibonacci = new Fibonacci(3);
-        expect(fibonacci.get()).toBe(2);
-    });
-
-    xit('fifth number of the sequence should be 3', () => {
-        const fibonacci = new Fibonacci(4);
-        expect(fibonacci.get()).toBe(3);
+    it('Fibonacci sequence', () => {
+        for (let i = 0; i < cases.length; i++) {
+            expect(new Fibonacci(i).get()).toBe(cases[i].value);
+        }
     });
 
 });
