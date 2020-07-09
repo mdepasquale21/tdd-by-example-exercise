@@ -7,8 +7,12 @@ fdescribe('Fibonacci', () => {
         {index: 0, value: 0},
         {index: 1, value: 1},
         {index: 2, value: 1},
-        {index: 3, value: 2}
-        // {index: 4, value: 3}
+        {index: 3, value: 2},
+        {index: 4, value: 3},
+        {index: 5, value: 5},
+        {index: 6, value: 8},
+        {index: 7, value: 13},
+        {index: 8, value: 21}
     ];
 
     it('Fibonacci sequence', () => {
