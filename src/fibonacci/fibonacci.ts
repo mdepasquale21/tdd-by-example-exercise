@@ -2,7 +2,7 @@ import { FibonacciItem } from './fibonacci.types';
 
 export class Fibonacci {
 
-    static getItem(index: number): FibonacciItem {
+    public static getItem(index: number): FibonacciItem {
         return {index: index, value: this.getValueAt(index)};
     }
 
@@ -11,6 +11,13 @@ export class Fibonacci {
             return index;
         } else {
             return Fibonacci.getValueAt(index - 1) + Fibonacci.getValueAt(index - 2);
+        }
+    }
+
+    public static logUntil(maxIndex: number): void {
+        for (let i = 0; i <= maxIndex; i++) {
+            const item: FibonacciItem = Fibonacci.getItem(i);
+            console.log('Element at', item.index, 'is', item.value);
         }
     }
 
