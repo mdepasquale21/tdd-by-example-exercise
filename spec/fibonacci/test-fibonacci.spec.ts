@@ -17,7 +17,9 @@ fdescribe('Fibonacci', () => {
 
     it('Fibonacci sequence', () => {
         for (let i = 0; i < cases.length; i++) {
-            expect(Fibonacci.getItem(i).value).toBe(cases[i].value);
+            const item: FibonacciItem = Fibonacci.getItem(i);
+            expect(item.index).toBe(cases[i].index);
+            expect(item.value).toBe(cases[i].value);
         }
     });
 

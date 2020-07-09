@@ -3,13 +3,15 @@ import { FibonacciItem } from './fibonacci.types';
 export class Fibonacci {
 
     static getItem(index: number): FibonacciItem {
-        let value: number;
+        return {index: index, value: this.getValueAt(index)};
+    }
+
+    private static getValueAt(index: number): number {
         if (index === 0 || index === 1) {
-            value = index;
+            return index;
         } else {
-            value = Fibonacci.getItem(index - 1).value + Fibonacci.getItem(index - 2).value;
+            return Fibonacci.getValueAt(index - 1) + Fibonacci.getValueAt(index - 2);
         }
-        return {index: index, value: value};
     }
 
 }
