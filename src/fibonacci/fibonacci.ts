@@ -14,11 +14,4 @@ export class Fibonacci {
         }
     }
 
-    public static logUntil(maxIndex: number): void {
-        for (let i = 0; i <= maxIndex; i++) {
-            const item: FibonacciItem = Fibonacci.getItem(i);
-            console.log('Element at', item.index, 'is', item.value);
-        }
-    }
-
 }

@@ -20,11 +20,11 @@ describe('Fibonacci', () => {
     it('Fibonacci sequence', () => {
         for (let i = 0; i < cases.length; i++) {
             const item: FibonacciItem = Fibonacci.getItem(i);
+            console.log('Element at', item.index, 'is', item.value);
 
             expect(item.index).toBe(cases[i].index);
             expect(item.value).toBe(cases[i].value);
         }
-        Fibonacci.logUntil(cases.length - 1);
     });
 
 });
