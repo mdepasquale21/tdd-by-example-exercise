@@ -1,2 +1,2 @@
-# tdd-by-example-exercise
-An app to exercise with the book TDD by example by Kent Beck.
+# book-examples-exercise
+Programming exercises with examples provided by text books.
