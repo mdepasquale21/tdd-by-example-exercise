@@ -9,7 +9,9 @@
     "unit-test": "nodemon --ext ts --exec npm run _unit-test",
     "_unit-test": "npm run clean && npm run gcp-build && jasmine || exit 0",
     "clean": "gulp",
-    "gcp-build": "tsc -p ."
+    "gcp-build": "tsc -p .",
+    "run-example-abstract-factory": "ts-node ./src/design-patterns/creational-patterns/abstract-factory/main.ts",
+    "run-example-builder": "ts-node ./src/design-patterns/creational-patterns/builder/main.ts"
   },
   "author": "mdepasquale21",
   "license": "ISC",
