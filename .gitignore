@@ -2,6 +2,7 @@ node_modules/
 *.js
 *.js.*
 .idea/
+*.iml
 
 spec/**/*.js
 spec/**/*.js.*
