@@ -14,10 +14,10 @@
   "author": "mdepasquale21",
   "license": "ISC",
   "devDependencies": {
-    "@types/jasmine": "^3.5.10",
-    "del": "^5.1.0",
+    "@types/jasmine": "^3.5.14",
+    "del": "^6.0.0",
     "gulp": "^4.0.2",
-    "jasmine": "^3.5.0",
-    "nodemon": "^2.0.4"
+    "jasmine": "^3.6.2",
+    "nodemon": "^2.0.6"
   }
 }
