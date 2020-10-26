@@ -3,6 +3,7 @@ import { MotifScrollBar, MotifWindow, PMScrollBar, PMWindow, ScrollBar, Window }
 // abstract factory
 
 // maybe this could also be an interface
+// or it could be a concrete factory with a default implementation
 export abstract class WidgetFactory {
 
     protected constructor() {
