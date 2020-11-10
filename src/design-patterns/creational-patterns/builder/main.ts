@@ -10,10 +10,11 @@ class RTFReader {
 
     // the director is only responsible for parsing
     parseRTF(): Text {
-        this.textConverter.convertCharacter('char');
-        this.textConverter.convertFontChange('font');
-        this.textConverter.convertParagraph();
-        return this.textConverter.getConvertedText();
+        return this.textConverter
+            .convertParagraph()
+            .convertCharacter('char')
+            .convertFontChange('font')
+            .getConvertedText();
     }
 
 }

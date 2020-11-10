@@ -1,13 +1,17 @@
-// abstract builder
-
 import { ASCIIText, Text, TeXText, TextWidget } from './models';
 
+// abstract builder
+
 export abstract class TextConverter {
-    abstract convertCharacter(char: string);
+    protected textParagraph: string;
+    protected textCharacter: string;
+    protected textFont: string;
 
-    abstract convertFontChange(font: string);
+    abstract convertCharacter(char: string): TextConverter;
 
-    abstract convertParagraph();
+    abstract convertFontChange(font: string): TextConverter;
+
+    abstract convertParagraph(): TextConverter;
 
     abstract getConvertedText(): Text;
 }
@@ -15,16 +19,20 @@ export abstract class TextConverter {
 // concrete builders
 
 export class ASCIIConverter extends TextConverter {
-    convertParagraph() {
-        console.log('ASCII CONVERTER: do nothing to paragraph');
+
+    convertParagraph(): ASCIIConverter {
+        this.textParagraph = 'ASCII CONVERTER: do nothing to paragraph';
+        return this;
     }
 
-    convertCharacter(char: string) {
-        console.log('ASCII CONVERTER: convert character to ASCII Plain Text');
+    convertCharacter(char: string): ASCIIConverter {
+        this.textCharacter = char + ' ASCII CONVERTER: convert character to ASCII Plain Text';
+        return this;
     }
 
-    convertFontChange(font: string) {
-        console.log('ASCII CONVERTER: do nothing to font');
+    convertFontChange(font: string): ASCIIConverter {
+        this.textFont = font + ' ASCII CONVERTER: do nothing to font';
+        return this;
     }
 
     getConvertedText(): ASCIIText {
@@ -33,21 +41,25 @@ export class ASCIIConverter extends TextConverter {
 
     // hide complex implementation
     private getASCIIText(): ASCIIText {
-        return new ASCIIText();
+        return new ASCIIText(this.textParagraph, this.textCharacter, this.textFont);
     }
 }
 
 export class TeXConverter extends TextConverter {
-    convertParagraph() {
-        console.log('in TeX Converter: convert paragraph');
+
+    convertParagraph(): TeXConverter {
+        this.textParagraph = 'in TeX Converter: convert paragraph';
+        return this;
     }
 
-    convertCharacter(char: string) {
-        console.log('in TeX Converter: convert character');
+    convertCharacter(char: string): TeXConverter {
+        this.textCharacter = char + ' in TeX Converter: convert character';
+        return this;
     }
 
-    convertFontChange(font: string) {
-        console.log('in TeX Converter: convert font');
+    convertFontChange(font: string): TeXConverter {
+        this.textFont = font + ' in TeX Converter: convert font';
+        return this;
     }
 
     getConvertedText(): TeXText {
@@ -56,21 +68,24 @@ export class TeXConverter extends TextConverter {
 
     // hide complex implementation
     private getTeXText(): TeXText {
-        return new TeXText();
+        return new TeXText(this.textParagraph, this.textCharacter, this.textFont);
     }
 }
 
 export class TextWidgetConverter extends TextConverter {
-    convertParagraph() {
-        console.log('in Text Widget Converter: convert paragraph');
+    convertParagraph(): TextWidgetConverter {
+        this.textParagraph = 'in Text Widget Converter: convert paragraph';
+        return this;
     }
 
-    convertCharacter(char: string) {
-        console.log('in Text Widget Converter: convert character');
+    convertCharacter(char: string): TextWidgetConverter {
+        this.textCharacter = char + ' in Text Widget Converter: convert character';
+        return this;
     }
 
-    convertFontChange(font: string) {
-        console.log('in Text Widget Converter: convert font');
+    convertFontChange(font: string): TextWidgetConverter {
+        this.textFont = font + ' in Text Widget Converter: convert font';
+        return this;
     }
 
     getConvertedText(): TextWidget {
@@ -79,6 +94,6 @@ export class TextWidgetConverter extends TextConverter {
 
     // hide complex implementation
     private getTextWidget(): TextWidget {
-        return new TextWidget();
+        return new TextWidget(this.textParagraph, this.textCharacter, this.textFont);
     }
 }

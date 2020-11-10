@@ -1,61 +1,50 @@
 export abstract class Text {
-    protected body: string;
 
-    protected constructor() {
-        this.setBody();
+    protected constructor(
+        protected paragraph: string,
+        protected character: string,
+        protected font: string
+    ) {
     }
-
-    abstract setBody(): void;
 
 }
 
 export class ASCIIText extends Text {
+    private readonly asciiStuff;
 
-    constructor() {
-        super();
-    }
-
-    setBody(): void {
-        this.body = this.getPlainText();
-    }
-
-
-    private getPlainText(): string {
-        return 'ASCII Plain Text';
+    constructor(
+        paragraph: string,
+        character: string,
+        font: string,
+    ) {
+        super(paragraph, character, font);
+        this.asciiStuff = 'ASCII STUFF';
     }
 }
 
 export class TeXText extends Text {
+    private readonly texStuff;
 
-    constructor() {
-        super();
+    constructor(
+        paragraph: string,
+        character: string,
+        font: string,
+    ) {
+        super(paragraph, character, font);
+        this.texStuff = 'TEX STUFF';
     }
 
-    setBody(): void {
-        this.body = this.getStyle() + ' ' + this.getText();
-    }
-
-
-    private getText(): string {
-        return 'TeX Text';
-    }
-
-    private getStyle(): string {
-        return 'TeX Style';
-    }
 }
 
 export class TextWidget extends Text {
+    private readonly textWidgetStuff;
 
-    constructor() {
-        super();
-    }
-
-    setBody(): void {
-        this.body = this.getWidget();
-    }
-
-    private getWidget(): string {
-        return 'Text Widget';
+    constructor(
+        paragraph: string,
+        character: string,
+        font: string,
+    ) {
+        super(paragraph, character, font);
+        this.textWidgetStuff = 'TEXT WIDGET';
     }
 }
