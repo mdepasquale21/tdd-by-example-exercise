@@ -8,13 +8,17 @@ class RTFReader {
     constructor(private textConverter: TextConverter) {
     }
 
-    // the director is only responsible for parsing
-    parseRTF(): Text {
-        return this.textConverter
+    // the director is only responsible for parsing (delegating complex building to the builder that knows!)
+    parseRTF(): void {
+        this.textConverter
             .convertParagraph()
             .convertCharacter('char')
             .convertFontChange('font')
-            .getConvertedText();
+    }
+
+    // ... and getting the result from the builder
+    getResult(): Text {
+        return this.textConverter.getConvertedText();
     }
 
 }
@@ -24,17 +28,20 @@ console.log('Create a reader (director) with a given text format through text co
 console.log('\n');
 console.log('ASCII');
 const aSCIIReader = new RTFReader(new ASCIIConverter());
-const parsedASCII = aSCIIReader.parseRTF();
+aSCIIReader.parseRTF();
+const parsedASCII = aSCIIReader.getResult();
 console.log(parsedASCII);
 
 console.log('\n');
 console.log('TeX');
 const teXReader = new RTFReader(new TeXConverter());
-const parsedTeX = teXReader.parseRTF();
+teXReader.parseRTF();
+const parsedTeX = teXReader.getResult();
 console.log(parsedTeX);
 
 console.log('\n');
 console.log('TextWidget');
 const textWidgetReader = new RTFReader(new TextWidgetConverter());
-const parsedTextWidget = textWidgetReader.parseRTF();
+textWidgetReader.parseRTF();
+const parsedTextWidget = textWidgetReader.getResult();
 console.log(parsedTextWidget);
