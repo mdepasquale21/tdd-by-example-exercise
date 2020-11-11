@@ -1,11 +1,16 @@
 import { ASCIIText, Text, TeXText, TextWidget } from './models';
 
 // abstract builder
+// must be general enough to allow the construction of products for all kind of concrete builders
 
 export abstract class TextConverter {
     protected textParagraph: string;
     protected textCharacter: string;
     protected textFont: string;
+
+    // these methods below or some of them might not be abstract
+    // they could be empty instead, to allow subclasses to override only the operations they need
+    // e.g. in this case ASCIIConverter does not need all methods to build ASCIIText
 
     abstract convertCharacter(char: string): TextConverter;
 

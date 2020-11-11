@@ -1,3 +1,8 @@
+// actually in many cases, the products (here the texts) produced by the concrete builders
+// differ so greatly in their representations that there is little to gain
+// from giving them a common parent class
+// so here Text abstract class might be removed since text format might be very different in practice
+
 export abstract class Text {
 
     protected constructor(
@@ -15,7 +20,7 @@ export class ASCIIText extends Text {
     constructor(
         paragraph: string,
         character: string,
-        font: string,
+        font: string
     ) {
         super(paragraph, character, font);
         this.asciiStuff = 'ASCII STUFF';
@@ -28,7 +33,7 @@ export class TeXText extends Text {
     constructor(
         paragraph: string,
         character: string,
-        font: string,
+        font: string
     ) {
         super(paragraph, character, font);
         this.texStuff = 'TEX STUFF';
@@ -42,7 +47,7 @@ export class TextWidget extends Text {
     constructor(
         paragraph: string,
         character: string,
-        font: string,
+        font: string
     ) {
         super(paragraph, character, font);
         this.textWidgetStuff = 'TEXT WIDGET';
