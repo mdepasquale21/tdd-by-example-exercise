@@ -11,7 +11,8 @@
     "clean": "gulp",
     "gcp-build": "tsc -p .",
     "run-example-abstract-factory": "ts-node ./src/design-patterns/creational-patterns/abstract-factory/main.ts",
-    "run-example-builder": "ts-node ./src/design-patterns/creational-patterns/builder/main.ts"
+    "run-example-builder": "ts-node ./src/design-patterns/creational-patterns/builder/main.ts",
+    "run-example-factory-method": "ts-node ./src/design-patterns/creational-patterns/factory-method/main.ts"
   },
   "author": "mdepasquale21",
   "license": "ISC",
